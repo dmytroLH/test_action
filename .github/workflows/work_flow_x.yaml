@@ -19,8 +19,5 @@ jobs:
       - name: Install app dependencies
         run: |
           poetry install --only main --no-root
-      - name: Lint with flake8
-        run: |
-          poetry install
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
