@@ -20,5 +20,8 @@ jobs:
       - name: Install app dependencies
         run: |
           poetry install --only main --no-root
+      - name: Build docker
+        run: |
+          make build-docker
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
