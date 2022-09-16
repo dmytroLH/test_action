@@ -28,40 +28,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.13.x
-          cache: npm
-
       - name: Install
-        run: npm ci
-
-      # Creates file "$/files.json", among others
-      - name: Gather files changed
-        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
-        with:
-          fileOutput: 'json'
-
-      # For verification
-      - name: Show files changed
-        run: cat $HOME/files.json
-
-      - name: Link check (warnings, changed files)
         run: |
-          ./script/rendered-content-link-checker.mjs \
-            --language en \
-            --max 100 \
-            --check-anchors \
-            --check-images \
-            --verbose \
-            --list $HOME/files.json
-
-      - name: Link check (critical, all files)
-        run: |
-          ./script/rendered-content-link-checker.mjs \
-            --language en \
-            --exit \
-            --verbose \
-            --check-images \
-            --level critical
+          make build-docker
