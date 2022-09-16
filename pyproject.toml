@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "Push notification service"
+name = "P service"
 version = "0.1.0"
 description = ""
 authors = ["DM"]

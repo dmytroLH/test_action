@@ -20,3 +20,5 @@ jobs:
       - name: Lint with flake8
         run: |
           poetry install
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
