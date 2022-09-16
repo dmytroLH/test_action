@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#vim :set filetype=sh:
+
+DOCKERFILE=${DOCKERFILE:-Dockerfile}
+IMAGE_NAME=${IMAGE_NAME:-service}
+WEB_PORT=${WEB_PORT:-8000}
+
+cd "$(dirname $0)";
+source "bash-helpers"
+cd ..
+
+docker build -t ${IMAGE_NAME} -f ${DOCKERFILE} .
+
